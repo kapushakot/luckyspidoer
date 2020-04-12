@@ -1,0 +1,34 @@
+<resources>
+    <string name="about_license">License</string>
+    <string name="app_copyright">Copyright © 2019 Yura Konskiy</string>
+    <string name="app_license">Tear The Web comes with ABSOLUTELY NO WARRANTY; for details click on the License button. This is free software, and you are welcome to redistribute it under certain conditions; click on the License button for details.</string>
+    <string name="app_name">Lucky Spider</string>
+    <string name="game_game_over">Game Over!</string>
+    <string name="game_level">level: %d</string>
+    <string name="game_lives">lives: %d</string>
+    <string name="game_score">score: %d</string>
+    <string name="help_how_to_play">How to play:</string>
+    <string name="facebook_app_id">462961134485109</string>
+    <string name="fb_login_protocol_scheme">fb462961134485109</string>
+    <string name="push">Lucky time..</string>
+    <string name="down">Download..</string>
+    <string name="help_text_1">Pull and tear spiderweb threads! You get points for every damaged thread.</string>
+    <string name="help_text_2">Try to throw all of the spiders off the screen! You get even more points for that.</string>
+    <string name="help_text_3">Beware! Do not touch spiders directly, cause they can bite You.</string>
+    <string name="help_text_4">New level is started when there are no more spiders on the screen.</string>
+    <string name="high_scores_action_clear">clear</string>
+    <string name="high_scores_date">Date</string>
+    <string name="high_scores_no_games">Empty!</string>
+    <string name="high_scores_score">Score</string>
+    <string name="start_continue_game">Continue</string>
+    <string name="start_high_scores">High Scores</string>
+    <string name="start_more">more</string>
+    <string name="start_new_game">New Game</string>
+    <string name="start_spiders">and get rid of spiders</string>
+    <string name="start_tear_the_web">Tear The Web</string>
+    <string name="title_activity_about">About</string>
+    <string name="title_activity_game">Tear The Web</string>
+    <string name="title_activity_help">Help</string>
+    <string name="title_activity_high_scores">High Scores</string>
+</resources>
+
