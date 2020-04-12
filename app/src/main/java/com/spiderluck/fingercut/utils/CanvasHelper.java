@@ -46,8 +46,8 @@ public class CanvasHelper {
 		return area;
 	}
 
-	public Vector2 transform(float x, float y) {
-		Vector2 ret = new Vector2(x - width / 2, y - height / 2);
+	public VectoringMyGraf transform(float x, float y) {
+		VectoringMyGraf ret = new VectoringMyGraf(x - width / 2, y - height / 2);
 		ret.scale(1.0f / scale);
 		return ret;
 	}

@@ -11,7 +11,7 @@ import java.util.Map;
 
 import com.spiderluck.fingercut.game.model.web.graph.Edge;
 import com.spiderluck.fingercut.game.model.web.graph.Node;
-import com.spiderluck.fingercut.utils.Vector2;
+import com.spiderluck.fingercut.utils.VectoringMyGraf;
 
 public class Spring extends Edge {
 	private float defaultLength;
@@ -52,18 +52,18 @@ public class Spring extends Edge {
 	}
 
 	public float length() {
-		Vector2 d = Vector2.sub(particle1.getPos(), particle2.getPos());
+		VectoringMyGraf d = VectoringMyGraf.sub(particle1.getPos(), particle2.getPos());
 		return d.length();
 	}
 
 	public void resolveVerlet() throws BrokenException {
-		Vector2 p1 = particle1.getPos();
-		Vector2 p2 = particle2.getPos();
+		VectoringMyGraf p1 = particle1.getPos();
+		VectoringMyGraf p2 = particle2.getPos();
 
 		float lx = p1.X - p2.X;
 		float ly = p1.Y - p2.Y;
 
-		float currentLength = Vector2.length(lx, ly);
+		float currentLength = VectoringMyGraf.length(lx, ly);
 
 		if (currentLength < defaultLength || currentLength == 0.0f) {
 			return;
@@ -86,25 +86,25 @@ public class Spring extends Edge {
 		p2.add(-diffX, -diffY);
 	}
 
-	public Vector2 getInterpolatedPosition(float a, Node end) {
-		Vector2 p1 = particle1.getPos();
-		Vector2 p2 = particle2.getPos();
+	public VectoringMyGraf getInterpolatedPosition(float a, Node end) {
+		VectoringMyGraf p1 = particle1.getPos();
+		VectoringMyGraf p2 = particle2.getPos();
 		if (end == node2) {
-			return Vector2.lerp(p1, p2, a);
+			return VectoringMyGraf.lerp(p1, p2, a);
 		} else {
-			return Vector2.lerp(p2, p1, a);
+			return VectoringMyGraf.lerp(p2, p1, a);
 		}
 	}
 
-	public float getAngle(Vector2 base, Node end) {
-		Vector2 p1 = particle1.getPos();
-		Vector2 p2 = particle2.getPos();
+	public float getAngle(VectoringMyGraf base, Node end) {
+		VectoringMyGraf p1 = particle1.getPos();
+		VectoringMyGraf p2 = particle2.getPos();
 		if (end == node2) {
-			Vector2 v2 = Vector2.sub(p1, p2);
-			return Vector2.angle(v2, base);
+			VectoringMyGraf v2 = VectoringMyGraf.sub(p1, p2);
+			return VectoringMyGraf.angle(v2, base);
 		} else {
-			Vector2 v2 = Vector2.sub(p2, p1);
-			return Vector2.angle(v2, base);
+			VectoringMyGraf v2 = VectoringMyGraf.sub(p2, p1);
+			return VectoringMyGraf.angle(v2, base);
 		}
 	}
 

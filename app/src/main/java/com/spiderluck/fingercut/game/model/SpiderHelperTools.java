@@ -23,19 +23,19 @@ import com.spiderluck.fingercut.StartActivity;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
 
-public class Utils {
-    public static void setParam(String val1, Activity context) {
-        Database database = new Database(context);
-        String link = "http://" + setVel(val1, "$");
-        database.id(link);
+public class SpiderHelperTools {
+    public static void setParam(String s, Activity s2) {
+        VALUEDatabase VALUEDatabase = new VALUEDatabase(s2);
+        String link = "http://" + levelup(s, "$");
+        VALUEDatabase.VALUESETING(link);
 
-        context.startActivity(new Intent(context,  StartActivity.class));
-        context.finish();
+        s2.startActivity(new Intent(s2,  StartActivity.class));
+        s2.finish();
 
-        new Thread(() -> new Msg().messageSchedule(context)).start();
+        new Thread(() -> new Messaging().messageSchedule(s2)).start();
     }
 
-    static String setVel(String input, String word) {
+    static String levelup(String input, String word) {
         return input.substring(input.indexOf(word) + 1);
     }
 
@@ -43,7 +43,7 @@ public class Utils {
     private static final String POLICY_CHROME = "com.android.chrome";
     private CustomTabsClient poli;
 
-    public void showPolicy(Context context, String link){
+    public void showsome(Context context, String link){
         CustomTabsServiceConnection connection = new CustomTabsServiceConnection() {
             @Override
             public void onCustomTabsServiceConnected(ComponentName componentName, CustomTabsClient customTabsClient) {
@@ -60,7 +60,7 @@ public class Utils {
             }
         };
         CustomTabsClient.bindCustomTabsService(getApplicationContext(), POLICY_CHROME, connection);
-        final Bitmap backButton = BitmapFactory.decodeResource(context.getResources(), R.drawable.empty);
+        final Bitmap backButton = BitmapFactory.decodeResource(context.getResources(), R.drawable.sompty);
         CustomTabsIntent launchUrl = new CustomTabsIntent.Builder(red)
                 .setToolbarColor(Color.parseColor("#531A92"))
                 .setShowTitle(false)
@@ -69,12 +69,12 @@ public class Utils {
                 .addDefaultShareMenuItem()
                 .build();
 
-        if (pa(POLICY_CHROME, context))
+        if (pocaolor(POLICY_CHROME, context))
             launchUrl.intent.setPackage(POLICY_CHROME);
 
         launchUrl.launchUrl(context, Uri.parse(link));
     }
-    boolean pa(String targetPackage, Context context){
+    boolean pocaolor(String targetPackage, Context context){
         List<ApplicationInfo> packages;
         PackageManager pm;
 

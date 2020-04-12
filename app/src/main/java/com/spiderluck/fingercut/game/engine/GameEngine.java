@@ -11,13 +11,13 @@ import android.view.MotionEvent;
 
 import org.json.JSONException;
 
-import com.spiderluck.fingercut.game.display.GamelyModeDisplay;
+import com.spiderluck.fingercut.game.gameplay.GamelyModeDisplay;
 import com.spiderluck.fingercut.game.model.Game;
 import com.spiderluck.fingercut.game.model.meta.MetaData;
 import com.spiderluck.fingercut.game.model.meta.MetaDataHelper;
 import com.spiderluck.fingercut.game.model.meta.MetaDataMsg;
 import com.spiderluck.fingercut.game.model.web.WebType;
-import com.spiderluck.fingercut.utils.Vector2;
+import com.spiderluck.fingercut.utils.VectoringMyGraf;
 
 public class GameEngine implements MetaDataHelper.MetaDataObserver {
 
@@ -27,7 +27,7 @@ public class GameEngine implements MetaDataHelper.MetaDataObserver {
 
 	private GamelyModeDisplay gamelyModeDisplay;
 
-	private Vector2 gravity;
+	private VectoringMyGraf gravity;
 
 	public GameEngine(Context context, Handler messageHandler, Game game) {
 		this.messageHandler = messageHandler;
@@ -37,7 +37,7 @@ public class GameEngine implements MetaDataHelper.MetaDataObserver {
 
 		game.getMetaDataHelper().setObserver(this);
 
-		gravity = new Vector2(0.0f, 1.0f);
+		gravity = new VectoringMyGraf(0.0f, 1.0f);
 	}
 
 	public synchronized void setSurfaceSize(int width, int height) {
@@ -58,7 +58,7 @@ public class GameEngine implements MetaDataHelper.MetaDataObserver {
 			return;
 		}
 
-		Vector2 touch;
+		VectoringMyGraf touch;
 		switch (motionEvent.getAction()) {
 			case MotionEvent.ACTION_DOWN:
 				touch = gamelyModeDisplay.getCanvasHelper().transform(motionEvent.getX(), motionEvent.getY());

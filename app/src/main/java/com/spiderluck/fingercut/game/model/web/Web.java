@@ -13,7 +13,7 @@ import java.util.Iterator;
 import com.spiderluck.fingercut.game.model.web.graph.Edge;
 import com.spiderluck.fingercut.game.model.web.graph.Graph;
 import com.spiderluck.fingercut.game.model.web.graph.Node;
-import com.spiderluck.fingercut.utils.Vector2;
+import com.spiderluck.fingercut.utils.VectoringMyGraf;
 
 public class Web extends Graph {
 
@@ -33,7 +33,7 @@ public class Web extends Graph {
 		return super.toJSON();
 	}
 
-	public void update(float dt, Vector2 gravity, RectF gameArea) {
+	public void update(float dt, VectoringMyGraf gravity, RectF gameArea) {
 		// Resolve springs and remove broken
 		Iterator<Edge> it = edges.iterator();
 		while (it.hasNext()) {
@@ -64,12 +64,12 @@ public class Web extends Graph {
 		}
 	}
 
-	public Particle selectParticleInRange(Vector2 clickPos, float r) {
+	public Particle selectParticleInRange(VectoringMyGraf clickPos, float r) {
 		float minDistance = r;
 		Particle chosen = null;
 		for (Node node : nodes) {
 			Particle p = (Particle) node;
-			float d = Vector2.length(Vector2.sub(p.getPos(), clickPos));
+			float d = VectoringMyGraf.length(VectoringMyGraf.sub(p.getPos(), clickPos));
 			if (!p.isPinned() && d <= minDistance) {
 				minDistance = d;
 				chosen = p;

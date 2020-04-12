@@ -1,4 +1,4 @@
-package com.spiderluck.fingercut.game.display;
+package com.spiderluck.fingercut.game.gameplay;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -38,7 +38,7 @@ public class GamelyModeDisplay {
 		myBitmap = null;
 
 		// read app background image
-		Bitmap appBackground = BitmapFactory.decodeResource(context.getResources(), R.drawable.web);
+		Bitmap appBackground = BitmapFactory.decodeResource(context.getResources(), R.drawable.webing);
 
 		backgroundcolor = context.getResources().getColor(R.color.colorBackground);
 		int borderColor = Color.BLACK;

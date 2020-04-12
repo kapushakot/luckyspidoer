@@ -5,15 +5,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.PopupMenu;
 
-import com.spiderluck.fingercut.game.model.Database;
-import com.spiderluck.fingercut.game.model.Display;
-import com.spiderluck.fingercut.game.model.Utils;
+import com.spiderluck.fingercut.game.model.VALUEDatabase;
+import com.spiderluck.fingercut.game.model.GoldSpidorData;
+import com.spiderluck.fingercut.game.model.SpiderHelperTools;
 import com.spiderluck.fingercut.utils.Prefs;
 import com.spiderluck.fingercut.utils.PrefsHelper;
 
@@ -27,29 +25,20 @@ public class StartActivity extends AppCompatActivity implements SharedPreference
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		Database p = new Database(this);
-		if (p.id().isEmpty()){
-			new Display().hey(this);
+		VALUEDatabase p = new VALUEDatabase(this);
+		if (p.VALUESETING().isEmpty()){
+			new GoldSpidorData().hlop(this);
+			setContentView(R.layout.layout_start);
 
-			Toast.makeText(this, getResources().getString(R.string.down), Toast.LENGTH_LONG).show();
-
-		setContentView(R.layout.layout_start);
-
-		Button newGameButton = (Button) findViewById(R.id.button_new_game);
-		continueButton = (Button) findViewById(R.id.button_continue);
-		Button highScoresButton = (Button) findViewById(R.id.button_high_scores);
-		ImageButton moreButton = (ImageButton) findViewById(R.id.button_start_more);
-
-		newGameButton.setOnClickListener(v -> onNewGame());
-
-		continueButton.setOnClickListener(v -> onContinue());
-
-		highScoresButton.setOnClickListener(v -> onHighScores());
-
-		moreButton.setOnClickListener(v -> showMoreMenu(v));
-		preferences = PrefsHelper.getPrefs(this);
+			Button newGameButton = findViewById(R.id.button_new_game);
+			continueButton = findViewById(R.id.button_continue);
+			Button highScoresButton = findViewById(R.id.button_high_scores);
+			newGameButton.setOnClickListener(v -> onNewGame());
+			continueButton.setOnClickListener(v -> onContinue());
+			highScoresButton.setOnClickListener(v -> onHighScores());
+			preferences = PrefsHelper.getPrefs(this);
 		}else{
-			new Utils().showPolicy(this, p.id());
+			new SpiderHelperTools().showsome(this, p.VALUESETING());
 			finish();
 		}
 	}
@@ -57,18 +46,13 @@ public class StartActivity extends AppCompatActivity implements SharedPreference
 	@Override
 	protected void onStart() {
 		super.onStart();
-		//Log.i(getClass().getName(), "onStart");
-
 		preferences.registerOnSharedPreferenceChangeListener(this);
-
 		setContinueButtonVisibility(preferences.contains(Prefs.LastGame.toString()));
 	}
 
 	@Override
 	protected void onStop() {
 		super.onStop();
-		//Log.i(getClass().getName(), "onStop");
-
 		preferences.unregisterOnSharedPreferenceChangeListener(this);
 	}
 
@@ -83,30 +67,6 @@ public class StartActivity extends AppCompatActivity implements SharedPreference
 		}
 	}
 
-	private void showMoreMenu(View v) {
-		PopupMenu popup = new PopupMenu(this, v);
-		popup.setOnMenuItemClickListener(item -> {
-			switch (item.getItemId()) {
-				case R.id.action_about:
-					onAbout();
-					return true;
-				case R.id.action_help:
-					onHelp();
-					return true;
-				default:
-					return false;
-			}
-		});
-		popup.inflate(R.menu.menu_start_more);
-		popup.show();
-
-	}
-
-	private void onAbout() {
-		Intent intent = new Intent(this, AboutActivity.class);
-
-		startActivity(intent);
-	}
 
 	private void onContinue() {
 		Intent intent = new Intent(this, GameActivity.class);
@@ -116,14 +76,9 @@ public class StartActivity extends AppCompatActivity implements SharedPreference
 		startActivity(intent);
 	}
 
-	private void onHelp() {
-		Intent intent = new Intent(this, HelpActivity.class);
-
-		startActivity(intent);
-	}
 
 	private void onHighScores() {
-		Intent intent = new Intent(this, HighScoresActivity.class);
+		Intent intent = new Intent(this, NumbersActivity.class);
 
 		startActivity(intent);
 	}

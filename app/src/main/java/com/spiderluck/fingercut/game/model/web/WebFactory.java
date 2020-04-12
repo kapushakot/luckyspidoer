@@ -13,7 +13,7 @@ import java.util.Map;
 import com.spiderluck.fingercut.game.model.web.graph.Edge;
 import com.spiderluck.fingercut.game.model.web.graph.Graph;
 import com.spiderluck.fingercut.game.model.web.graph.Node;
-import com.spiderluck.fingercut.utils.Vector2;
+import com.spiderluck.fingercut.utils.VectoringMyGraf;
 
 public class WebFactory {
 	private static WebFactory instance = new WebFactory();
@@ -222,14 +222,14 @@ public class WebFactory {
 	}
 
 	private void addChain(ArrayList<Node> particles, ArrayList<Edge> springs, Particle start, Particle end, float segmentLength) {
-		Vector2 p1 = start.getPos();
-		Vector2 p2 = end.getPos();
-		float length = Vector2.sub(p1, p2).length();
+		VectoringMyGraf p1 = start.getPos();
+		VectoringMyGraf p2 = end.getPos();
+		float length = VectoringMyGraf.sub(p1, p2).length();
 
 		int segments = (int) Math.floor(length / segmentLength);
 
 		for (int i = 1; i < segments; i++) {
-			Vector2 p = Vector2.lerp(p1, p2, (float) i / (float) segments);
+			VectoringMyGraf p = VectoringMyGraf.lerp(p1, p2, (float) i / (float) segments);
 			Particle part = new Particle(p.X, p.Y, false);
 			particles.add(part);
 

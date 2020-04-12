@@ -6,13 +6,13 @@ import org.json.JSONObject;
 import com.spiderluck.fingercut.game.model.web.Particle;
 import com.spiderluck.fingercut.game.model.web.Web;
 import com.spiderluck.fingercut.utils.Savable;
-import com.spiderluck.fingercut.utils.Vector2;
+import com.spiderluck.fingercut.utils.VectoringMyGraf;
 
 public class Finger implements Savable {
 	private boolean bitten;
 	private float timeToHeal;
 
-	private Vector2 position;
+	private VectoringMyGraf position;
 	private float radius;
 	private Particle selectedParticle;
 
@@ -73,14 +73,14 @@ public class Finger implements Savable {
 	}
 
 	public boolean isInContactWith(Spider spider) {
-		return position != null && Vector2.length(Vector2.sub(position, spider.getPosition())) < radius;
+		return position != null && VectoringMyGraf.length(VectoringMyGraf.sub(position, spider.getPosition())) < radius;
 	}
 
 	public boolean isBitten() {
 		return bitten;
 	}
 
-	public Vector2 getPosition() {
+	public VectoringMyGraf getPosition() {
 		return position;
 	}
 
@@ -88,7 +88,7 @@ public class Finger implements Savable {
 		return radius;
 	}
 
-	public void startTracking(Vector2 touch, Web web, SpiderSet spiderSet) {
+	public void startTracking(VectoringMyGraf touch, Web web, SpiderSet spiderSet) {
 		position = touch;
 		if (!bitten) {
 			Particle particle = web.selectParticleInRange(touch, radius);
@@ -100,11 +100,11 @@ public class Finger implements Savable {
 		}
 	}
 
-	public void continueTracking(Vector2 touch) {
+	public void continueTracking(VectoringMyGraf touch) {
 		if (position != null) {
 			if (selectedParticle != null) {
-				Vector2 move = Vector2.sub(touch, position);
-				Vector2 particlePos = selectedParticle.getPos();
+				VectoringMyGraf move = VectoringMyGraf.sub(touch, position);
+				VectoringMyGraf particlePos = selectedParticle.getPos();
 				particlePos.add(move);
 				selectedParticle.setPinnedPos(particlePos);
 			}

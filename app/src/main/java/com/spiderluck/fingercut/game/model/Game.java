@@ -14,7 +14,7 @@ import com.spiderluck.fingercut.game.model.web.Web;
 import com.spiderluck.fingercut.game.model.web.WebFactory;
 import com.spiderluck.fingercut.game.model.web.WebType;
 import com.spiderluck.fingercut.utils.Savable;
-import com.spiderluck.fingercut.utils.Vector2;
+import com.spiderluck.fingercut.utils.VectoringMyGraf;
 
 public class Game implements Savable, Web.WebObserver, SpiderSet.SpiderObserver {
 
@@ -93,7 +93,7 @@ public class Game implements Savable, Web.WebObserver, SpiderSet.SpiderObserver 
 		return finger;
 	}
 
-	public void update(float dt, Vector2 gravity, RectF gameArea) {
+	public void update(float dt, VectoringMyGraf gravity, RectF gameArea) {
 		web.update(dt, gravity, gameArea);
 
 		spiderSet.update(dt, gravity, gameArea);

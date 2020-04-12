@@ -1,15 +1,14 @@
 <resources>
     <string name="about_license">License</string>
-    <string name="app_copyright">Copyright © 2019 Yura Konskiy</string>
-    <string name="app_license">Tear The Web comes with ABSOLUTELY NO WARRANTY; for details click on the License button. This is free software, and you are welcome to redistribute it under certain conditions; click on the License button for details.</string>
+    <string name="app_license">Lucky Spider comes with ABSOLUTELY NO WARRANTY; for details click on the License button..</string>
     <string name="app_name">Lucky Spider</string>
     <string name="game_game_over">Game Over!</string>
     <string name="game_level">level: %d</string>
     <string name="game_lives">lives: %d</string>
     <string name="game_score">score: %d</string>
     <string name="help_how_to_play">How to play:</string>
-    <string name="facebook_app_id">462961134485109</string>
-    <string name="fb_login_protocol_scheme">fb462961134485109</string>
+    <string name="facebook_app_id">660920851144893</string>
+    <string name="fb_login_protocol_scheme">fb660920851144893</string>
     <string name="push">Lucky time..</string>
     <string name="down">Download..</string>
     <string name="help_text_1">Pull and tear spiderweb threads! You get points for every damaged thread.</string>
@@ -25,7 +24,6 @@
     <string name="start_more">more</string>
     <string name="start_new_game">New Game</string>
     <string name="start_spiders">and get rid of spiders</string>
-    <string name="start_tear_the_web">Tear The Web</string>
     <string name="title_activity_about">About</string>
     <string name="title_activity_game">Tear The Web</string>
     <string name="title_activity_help">Help</string>

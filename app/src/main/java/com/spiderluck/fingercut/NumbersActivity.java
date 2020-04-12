@@ -22,7 +22,7 @@ import androidx.cursoradapter.widget.CursorAdapter;
 import com.spiderluck.fingercut.utils.DBHelper;
 import com.spiderluck.fingercut.utils.ResultsTableHelper;
 
-public class HighScoresActivity extends AppCompatActivity {
+public class NumbersActivity extends AppCompatActivity {
 
 	private CursorAdapter adapter;
 
@@ -57,12 +57,6 @@ public class HighScoresActivity extends AppCompatActivity {
 		dbHelper = new DBHelper(this);
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.menu_high_scores, menu);
-		return true;
-	}
 
 	@Override
 	protected void onStart() {
@@ -85,11 +79,6 @@ public class HighScoresActivity extends AppCompatActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 			// Respond to the clear button
-			case R.id.action_clear:
-				clearHighScores();
-				Cursor cursor = createCursor();
-				adapter.changeCursor(cursor);
-				break;
 			// Respond to the action bar's Up/Home button
 			case android.R.id.home:
 				onBackPressed();

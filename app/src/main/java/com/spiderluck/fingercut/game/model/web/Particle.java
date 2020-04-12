@@ -6,10 +6,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.spiderluck.fingercut.game.model.web.graph.Node;
-import com.spiderluck.fingercut.utils.Vector2;
+import com.spiderluck.fingercut.utils.VectoringMyGraf;
 
 public class Particle extends Node {
-	private Vector2 pos, prevPos;
+	private VectoringMyGraf pos, prevPos;
 	private boolean pinned;
 
 	private static final float dampingFactor = 0.99f;
@@ -22,15 +22,15 @@ public class Particle extends Node {
 
 	public Particle(float x, float y, boolean pinned) {
 		super();
-		pos = new Vector2(x, y);
-		prevPos = new Vector2(x, y);
+		pos = new VectoringMyGraf(x, y);
+		prevPos = new VectoringMyGraf(x, y);
 		this.pinned = pinned;
 	}
 
 	public Particle(JSONObject json) throws JSONException {
 		super(json);
-		pos = new Vector2(json.getJSONObject(Keys.Pos.toString()));
-		prevPos = new Vector2(json.getJSONObject(Keys.PrevPos.toString()));
+		pos = new VectoringMyGraf(json.getJSONObject(Keys.Pos.toString()));
+		prevPos = new VectoringMyGraf(json.getJSONObject(Keys.PrevPos.toString()));
 		pinned = json.getBoolean(Keys.Pinned.toString());
 	}
 
@@ -45,7 +45,7 @@ public class Particle extends Node {
 		return state;
 	}
 
-	public void update(float dt, Vector2 gravity) {
+	public void update(float dt, VectoringMyGraf gravity) {
 		if (!pinned) {
 
 			// Position Verlet integration method
@@ -65,7 +65,7 @@ public class Particle extends Node {
 		}
 	}
 
-	public Vector2 getPos() {
+	public VectoringMyGraf getPos() {
 		return pos;
 	}
 
@@ -77,7 +77,7 @@ public class Particle extends Node {
 		this.pinned = pinned;
 	}
 
-	public void setPinnedPos(Vector2 pos) {
+	public void setPinnedPos(VectoringMyGraf pos) {
 		this.pos.set(pos);
 		prevPos.set(pos);
 	}

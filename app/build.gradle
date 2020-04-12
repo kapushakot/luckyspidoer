@@ -14,16 +14,43 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    signingConfigs {
+
+        production {
+            storeFile file("../keystore/android_release.keystore")
+            storePassword "good01_spider05_release_pass"
+            keyAlias "good01_spider05_release"
+            keyPassword "good01_spider05_release_pass"
         }
+
+        debug {
+            storeFile file("../keystore/android_debug.keystore")
+            storePassword "good01_spider05_debug_pass"
+            keyAlias "good01_spider05_debug"
+            keyPassword "good01_spider05_debug_pass"
+        }
+
     }
+
 
     compileOptions {
         sourceCompatibility 1.8
         targetCompatibility 1.8
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            debuggable false
+            signingConfig signingConfigs.production
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            signingConfig signingConfigs.debug
+        }
     }
 
 }

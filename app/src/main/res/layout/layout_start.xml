@@ -14,37 +14,19 @@
         android:layout_gravity="center"
         android:layout_weight="1">
 
-        <ImageButton
-            android:id="@+id/button_start_more"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:background="@drawable/image_button_background"
-            android:contentDescription="@string/start_more"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_action_overflow" />
-
         <TextView
             android:id="@+id/text_tear_the_web"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            android:layout_centerInParent="true"
             android:layout_gravity="center"
-            android:text="@string/start_tear_the_web"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:fontFamily="@font/bevan"
+            android:text="Lucky Spider"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFEB3B"
+            android:textSize="36sp"
+            android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/text_avoid_spiders"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/text_tear_the_web"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:text="@string/start_spiders"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
     </RelativeLayout>
 
     <FrameLayout

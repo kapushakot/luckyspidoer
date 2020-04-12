@@ -19,7 +19,7 @@ import com.spiderluck.fingercut.game.model.web.graph.Graph;
 import com.spiderluck.fingercut.game.model.web.graph.Node;
 import com.spiderluck.fingercut.utils.Modulo;
 import com.spiderluck.fingercut.utils.Savable;
-import com.spiderluck.fingercut.utils.Vector2;
+import com.spiderluck.fingercut.utils.VectoringMyGraf;
 
 public class Spider implements Savable {
 	private int mode;
@@ -44,11 +44,11 @@ public class Spider implements Savable {
 
 	private static final int fingerDetectDistance = 15;
 
-	private Vector2 position;
-	private Vector2 velocity;
+	private VectoringMyGraf position;
+	private VectoringMyGraf velocity;
 	private float rotation;
 
-	private static Vector2 upVector = new Vector2(0.0f, 1.0f);
+	private static VectoringMyGraf upVector = new VectoringMyGraf(0.0f, 1.0f);
 
 	private enum Keys {
 		Mode,
@@ -75,8 +75,8 @@ public class Spider implements Savable {
 
 		path = null;
 
-		position = new Vector2();
-		velocity = new Vector2();
+		position = new VectoringMyGraf();
+		velocity = new VectoringMyGraf();
 		rotation = 0;
 	}
 
@@ -89,11 +89,11 @@ public class Spider implements Savable {
 			Node prevTarget = graph.getNodeWithId(json.getInt(Keys.PrevTarget.toString()));
 			spring = (Spring) prevTarget.getEdgeTo(target);
 			springPercent = (float) json.getDouble(Keys.SpringPercent.toString());
-			position = new Vector2();
-			velocity = new Vector2();
+			position = new VectoringMyGraf();
+			velocity = new VectoringMyGraf();
 		} else {
-			position = new Vector2(json.getJSONObject(Keys.Position.toString()));
-			velocity = new Vector2(json.getJSONObject(Keys.Velocity.toString()));
+			position = new VectoringMyGraf(json.getJSONObject(Keys.Position.toString()));
+			velocity = new VectoringMyGraf(json.getJSONObject(Keys.Velocity.toString()));
 		}
 
 		rotation = (float) json.getDouble(Keys.Rotation.toString());
@@ -167,7 +167,7 @@ public class Spider implements Savable {
 		springPercent = 0.0f;
 	}
 
-	public void update(float dt, Vector2 gravity, RectF gameArea) throws OutException {
+	public void update(float dt, VectoringMyGraf gravity, RectF gameArea) throws OutException {
 		if (mode != MODE_FALLING) {
 			float len = spring.length();
 
@@ -191,8 +191,8 @@ public class Spider implements Savable {
 				springPercent = 0.0f;
 			}
 
-			Vector2 newPosition = spring.getInterpolatedPosition(springPercent, target);
-			velocity = Vector2.scale(Vector2.sub(newPosition, position), 1 / dt);
+			VectoringMyGraf newPosition = spring.getInterpolatedPosition(springPercent, target);
+			velocity = VectoringMyGraf.scale(VectoringMyGraf.sub(newPosition, position), 1 / dt);
 			position = newPosition;
 
 			float desiredRot = spring.getAngle(upVector, target);
@@ -201,8 +201,8 @@ public class Spider implements Savable {
 
 			rotation += diffRot / 10.0f;
 		} else {
-			velocity.add(Vector2.scale(gravity, dt));
-			position.add(Vector2.scale(velocity, dt));
+			velocity.add(VectoringMyGraf.scale(gravity, dt));
+			position.add(VectoringMyGraf.scale(velocity, dt));
 		}
 
 		if (!position.isInBounds(gameArea)) {
@@ -210,7 +210,7 @@ public class Spider implements Savable {
 		}
 	}
 
-	public Vector2 getPosition() {
+	public VectoringMyGraf getPosition() {
 		return position;
 	}
 

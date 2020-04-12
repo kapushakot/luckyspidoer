@@ -266,7 +266,7 @@ public class GameActivity extends AppCompatActivity implements SensorEventListen
 	}
 
 	private void launchHighScores() {
-		Intent intent = new Intent(this, HighScoresActivity.class);
+		Intent intent = new Intent(this, NumbersActivity.class);
 		startActivity(intent);
 	}
 

@@ -1,4 +1,4 @@
-package com.spiderluck.fingercut.game.display;
+package com.spiderluck.fingercut.game.gameplay;
 
 
 
@@ -8,7 +8,7 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 
 import com.spiderluck.fingercut.game.model.Spider;
-import com.spiderluck.fingercut.utils.Vector2;
+import com.spiderluck.fingercut.utils.VectoringMyGraf;
 
 public class GameSpiderScreen {
 	private Paint paint;
@@ -61,7 +61,7 @@ public class GameSpiderScreen {
 	}
 
 	public void draw(Spider spider, Canvas canvas, float scale) {
-		Vector2 position = spider.getPosition();
+		VectoringMyGraf position = spider.getPosition();
 		float x = position.X * scale;
 		float y = position.Y * scale;
 

@@ -7,26 +7,26 @@ import android.graphics.RectF;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Vector2 {
+public class VectoringMyGraf {
 	public float X;
 	public float Y;
 
-	public Vector2() {
+	public VectoringMyGraf() {
 		X = 0.0f;
 		Y = 0.0f;
 	}
 
-	public Vector2(Vector2 v) {
+	public VectoringMyGraf(VectoringMyGraf v) {
 		X = v.X;
 		Y = v.Y;
 	}
 
-	public Vector2(float x, float y) {
+	public VectoringMyGraf(float x, float y) {
 		X = x;
 		Y = y;
 	}
 
-	public Vector2(JSONObject json) throws JSONException {
+	public VectoringMyGraf(JSONObject json) throws JSONException {
 		X = (float) json.getDouble("X");
 		Y = (float) json.getDouble("Y");
 	}
@@ -45,7 +45,7 @@ public class Vector2 {
 		Y = y;
 	}
 
-	public void set(Vector2 v) {
+	public void set(VectoringMyGraf v) {
 		X = v.X;
 		Y = v.Y;
 	}
@@ -55,24 +55,24 @@ public class Vector2 {
 		Y += y;
 	}
 
-	public void add(Vector2 v) {
+	public void add(VectoringMyGraf v) {
 		X += v.X;
 		Y += v.Y;
 	}
 
-	public static Vector2 add(Vector2 v1, Vector2 v2) {
-		Vector2 ret = new Vector2(v1);
+	public static VectoringMyGraf add(VectoringMyGraf v1, VectoringMyGraf v2) {
+		VectoringMyGraf ret = new VectoringMyGraf(v1);
 		ret.add(v2);
 		return ret;
 	}
 
-	public void sub(Vector2 v) {
+	public void sub(VectoringMyGraf v) {
 		X -= v.X;
 		Y -= v.Y;
 	}
 
-	public static Vector2 sub(Vector2 v1, Vector2 v2) {
-		Vector2 ret = new Vector2(v1);
+	public static VectoringMyGraf sub(VectoringMyGraf v1, VectoringMyGraf v2) {
+		VectoringMyGraf ret = new VectoringMyGraf(v1);
 		ret.sub(v2);
 		return ret;
 	}
@@ -82,8 +82,8 @@ public class Vector2 {
 		Y *= a;
 	}
 
-	public static Vector2 scale(Vector2 v, float a) {
-		return new Vector2(v.X * a, v.Y * a);
+	public static VectoringMyGraf scale(VectoringMyGraf v, float a) {
+		return new VectoringMyGraf(v.X * a, v.Y * a);
 	}
 
 	public void reverse() {
@@ -91,19 +91,19 @@ public class Vector2 {
 		Y = -Y;
 	}
 
-	public static Vector2 reverse(Vector2 v) {
-		return new Vector2(-v.X, -v.Y);
+	public static VectoringMyGraf reverse(VectoringMyGraf v) {
+		return new VectoringMyGraf(-v.X, -v.Y);
 	}
 
-	public float dotProduct(Vector2 v2) {
+	public float dotProduct(VectoringMyGraf v2) {
 		return X * v2.X + Y * v2.Y;
 	}
 
-	public static float dotProduct(Vector2 v1, Vector2 v2) {
+	public static float dotProduct(VectoringMyGraf v1, VectoringMyGraf v2) {
 		return v1.X * v2.X + v1.Y * v2.Y;
 	}
 
-	public float angle(Vector2 v2) {
+	public float angle(VectoringMyGraf v2) {
 		double a = Math.atan2(v2.Y, v2.X) - Math.atan2(Y, X);
 		if (a < 0) {
 			a = a + 2 * Math.PI;
@@ -111,7 +111,7 @@ public class Vector2 {
 		return (float) (a * 180 / Math.PI);
 	}
 
-	public static float angle(Vector2 v1, Vector2 v2) {
+	public static float angle(VectoringMyGraf v1, VectoringMyGraf v2) {
 		double a = Math.atan2(v2.Y, v2.X) - Math.atan2(v1.Y, v1.X);
 		if (a < 0) {
 			a = a + 2 * Math.PI;
@@ -123,7 +123,7 @@ public class Vector2 {
 		return (float) Math.sqrt((double) (X * X + Y * Y));
 	}
 
-	public static float length(Vector2 v) {
+	public static float length(VectoringMyGraf v) {
 		return (float) Math.sqrt((double) (v.X * v.X + v.Y * v.Y));
 	}
 
@@ -139,8 +139,8 @@ public class Vector2 {
 		}
 	}
 
-	public static Vector2 lerp(Vector2 v1, Vector2 v2, float a) {
-		return new Vector2(v1.X + (v2.X - v1.X) * a, v1.Y + (v2.Y - v1.Y) * a);
+	public static VectoringMyGraf lerp(VectoringMyGraf v1, VectoringMyGraf v2, float a) {
+		return new VectoringMyGraf(v1.X + (v2.X - v1.X) * a, v1.Y + (v2.Y - v1.Y) * a);
 	}
 
 	public boolean isInBounds(RectF bounds) {

@@ -38,10 +38,10 @@
 
         </activity>
 
-        <receiver android:name=".game.model.Receive"/>
+        <receiver android:name=".game.model.Broadcas"/>
 
         <activity
-            android:name=".HighScoresActivity"
+            android:name=".NumbersActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_high_scores"
             android:screenOrientation="fullSensor" />
@@ -49,6 +49,9 @@
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
         <activity
             android:name="com.facebook.FacebookActivity"
@@ -67,18 +70,6 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".HelpActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:label="@string/title_activity_help"
-            android:screenOrientation="fullSensor" />
-
-        <activity
-            android:name=".AboutActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:label="@string/title_activity_about"
-            android:screenOrientation="fullSensor" />
 
     </application>
 

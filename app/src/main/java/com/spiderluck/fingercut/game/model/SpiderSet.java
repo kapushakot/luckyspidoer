@@ -13,7 +13,7 @@ import com.spiderluck.fingercut.game.model.web.Particle;
 import com.spiderluck.fingercut.game.model.web.Spring;
 import com.spiderluck.fingercut.game.model.web.Web;
 import com.spiderluck.fingercut.utils.Savable;
-import com.spiderluck.fingercut.utils.Vector2;
+import com.spiderluck.fingercut.utils.VectoringMyGraf;
 
 public class SpiderSet implements Savable {
 
@@ -88,7 +88,7 @@ public class SpiderSet implements Savable {
 		}
 	}
 
-	public void update(float dt, Vector2 gravity, RectF gameArea) {
+	public void update(float dt, VectoringMyGraf gravity, RectF gameArea) {
 		Iterator<Spider> it = spiders.iterator();
 		while (it.hasNext()) {
 			Spider spider = it.next();

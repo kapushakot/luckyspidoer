@@ -6,7 +6,7 @@
     android:background="@drawable/web_repeat"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context=".HighScoresActivity">
+    tools:context=".NumbersActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_high_scores"

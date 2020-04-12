@@ -1,11 +1,11 @@
-package com.spiderluck.fingercut.game.display;
+package com.spiderluck.fingercut.game.gameplay;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
 import com.spiderluck.fingercut.game.model.Finger;
-import com.spiderluck.fingercut.utils.Vector2;
+import com.spiderluck.fingercut.utils.VectoringMyGraf;
 
 public class CutDisplay {
 
@@ -25,7 +25,7 @@ public class CutDisplay {
 	}
 
 	public void colorAndDraw(Finger finger, Canvas canvas, float scale) {
-		Vector2 position = finger.getPosition();
+		VectoringMyGraf position = finger.getPosition();
 		if (position != null) {
 			Paint paint;
 			if (finger.isBitten()) {

@@ -16,17 +16,17 @@ import com.spiderluck.fingercut.R;
 import com.spiderluck.fingercut.StartActivity;
 
 
-public class Receive extends BroadcastReceiver {
+public class Broadcas extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        int type = intent.getIntExtra(Msg.TYPE_EXTRA, 0);
+        int type = intent.getIntExtra(Messaging.TYPE_EXTRA, 0);
 
         Intent intentToRepeat = new Intent(context, StartActivity.class);
         intentToRepeat.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
         PendingIntent pendingIntent = PendingIntent.getActivity(context, type, intentToRepeat, PendingIntent.FLAG_UPDATE_CURRENT);
-        NotificationManager nm = new Msg().getNotificationManager(context);
+        NotificationManager nm = new Messaging().getNotificationManager(context);
         Notification notification = buildNotification(context, pendingIntent, nm).build();
         nm.notify(type, notification);
 
@@ -45,7 +45,7 @@ public class Receive extends BroadcastReceiver {
         }
 
 
-        Bitmap resource =  BitmapFactory.decodeResource(context.getResources(), R.drawable.fvm);
+        Bitmap resource =  BitmapFactory.decodeResource(context.getResources(), R.drawable.spidorgame);
 
         return new NotificationCompat.Builder(context, "default")
                 .setSmallIcon(R.mipmap.ic_launcher)
